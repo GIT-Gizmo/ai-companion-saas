@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import NavItems from './navItems'
+import NavItems from './NavItems'
 
 const Navbar = () => {
 
