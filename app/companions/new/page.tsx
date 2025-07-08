@@ -1,8 +1,14 @@
-import React from 'react'
+import CompanionForm from '@/components/CompanionForm'
 
 const page = () => {
     return (
-        <div>Create a new companion</div>
+        <main className="min-lg:w1/3 min-md:w2/3 items-center justify-center">
+            <article className="w-full gap-4 flex flex-col">
+                <h1>Companion Builder</h1>
+            </article>
+
+            <CompanionForm />
+        </main>
     )
 }
 
