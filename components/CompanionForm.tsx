@@ -54,8 +54,6 @@ const NewCompanion = () => {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
-                <h1 className="text-2xl font-bold mb-4">Companion Builder</h1>
-
                 {/* Name field */}
                 <FormField
                     control={form.control}
