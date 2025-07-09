@@ -38,3 +38,18 @@ export const getAllCompanions = async ({ limit = 10, page = 1, subject, topic }:
 
     return companions;
 }
+
+export const getCompanion = async (id: string) => {
+    const supabase = createSupabaseClient()
+    if (!id) throw new Error('Companion ID is required')
+    const { data, error } = await supabase
+        .from('companions')
+        .select()
+        .eq('id', id)
+
+    if (error || !data || data.length === 0) {
+        throw new Error(error?.message || 'Companion not found')
+    }
+
+    return data[0];
+}
