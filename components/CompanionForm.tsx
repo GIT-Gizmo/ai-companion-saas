@@ -31,7 +31,7 @@ const formSchema = z.object({
     topic: z.string().min(2, { message: 'Topic is required' }).max(50),
     voice: z.string().min(2, { message: 'Voice type is required' }).max(10),
     style: z.string().min(2, { message: 'Conversation style is required' }).max(50),
-    duration: z.coerce.number().min(2, { message: 'Duration is required' }).max(50),
+    duration: z.coerce.number().min(1, { message: 'Duration is required' }).max(50),
 })
 
 const NewCompanion = () => {
