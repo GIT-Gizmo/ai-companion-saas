@@ -80,8 +80,8 @@ const CompanionComponent = ({ companionId, subject, topic, name, style, voice, u
 
             const assistantOverrides = {
                 variableValues: { subject, topic, style },
-                clientMessages: ['transcript'],
-                serverMessages: [],
+                clientMessages: ['transcript'] as const,
+                serverMessages: [] as const,
             }
 
             // @ts-expect-error vapi.start is typed correctly

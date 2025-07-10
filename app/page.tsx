@@ -21,22 +21,6 @@ const Page = async () => {
             color={getSubjectColor(companion.subject)}
           />
         ))}
-        {/* <CompanionCard
-          id="1"
-          name="Albert Relativestein the Theorist"
-          topic="Theory of Relativity"
-          subject="science"
-          duration={45}
-          color="#4A90E2"
-        />
-        <CompanionCard
-          id="3"
-          name="Napoleon Dynamite the Historian"
-          topic="French Revolution"
-          subject="history"
-          duration={60}
-          color="#D35400"
-        /> */}
       </section>
 
       <section className="home-section">
