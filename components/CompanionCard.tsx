@@ -37,7 +37,7 @@ const CompanionCard = ({ id, name, topic, subject, duration, color }: CompanionC
                     width={13.5}
                     height={13.5}
                 />
-                <p className="text-sm"><strong>Duration:</strong> {duration} minutes</p>
+                <p className="text-sm"><strong>Duration:</strong> {duration} min</p>
             </div>
 
             <Link href={`/companions/${id}`} className='w-full'>

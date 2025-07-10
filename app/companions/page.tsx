@@ -27,7 +27,7 @@ const ComponentsLibrary = async ({ searchParams }: SearchParams) => {
                     <SubjectFilter />
                 </div>
             </section>
-            <section className="companion-grid">
+            <section className="companions-grid py-10">
                 {companions.map((companion) => (
                     <CompanionCard
                         key={companion.id}

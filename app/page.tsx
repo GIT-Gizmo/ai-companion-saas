@@ -8,7 +8,7 @@ const Page = () => {
       <h1 className="text-2xl underline">Popular Companions</h1>
       <PopularCompanions />
 
-      <section className="home-section">
+      <section className="home-section pb-10">
         <RecentCompanionSessions />
         <CallToAction />
       </section>

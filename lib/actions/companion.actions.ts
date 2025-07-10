@@ -131,6 +131,37 @@ export const getUserCompanions = async (userId: string, limit = 10, page = 1) =>
 
     return data;
 }
+
+export const newCompanionPermissions = async () => {
+    const { userId, has } = await auth()
+    const supabase = createSupabaseClient()
+
+    let limit = 0;
+
+    if (has({ plan: "pro" })) {
+        return true;
+    } else if (has({ feature: "3_active_companions" })) {
+        limit = 3;
+    } else if (has({ feature: "10_active_companions" })) {
+        limit = 10;
+    }
+
+    const { data, error } = await supabase
+        .from('companions')
+        .select('id', { count: 'exact' })
+        .eq('author', userId)
+
+    if (error) throw new Error(error.message)
+
+    const companionCount = data?.length || 0;
+
+    if (companionCount >= limit && limit > 0) {
+        return `You have reached the limit of ${limit} active companions. Please delete some before creating new ones.`;
+    } else {
+        return true;
+    }
+}
+
 // Uncomment if you need to implement delete and update functionality
 
 
