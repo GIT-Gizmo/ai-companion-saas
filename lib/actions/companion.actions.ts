@@ -114,25 +114,25 @@ export const getUserSessions = async (userId: string, limit = 10) => {
 
 }
 
+export const getUserCompanions = async (userId: string, limit = 10, page = 1) => {
+    const supabase = createSupabaseClient()
+    if (!userId) throw new Error('User ID is required')
+
+    const { data, error } = await supabase
+        .from('companions')
+        .select()
+        .eq('author', userId)
+        .range((page - 1) * limit, page * limit - 1)
+        .order('created_at', { ascending: false })
+
+    if (error || !data || data.length === 0) {
+        throw new Error(error?.message || 'No companions found for this user')
+    }
+
+    return data;
+}
 // Uncomment if you need to implement delete and update functionality
 
-// export const getCompanionsByAuthor = async (author: string, limit = 10, page = 1) => {
-//     const supabase = createSupabaseClient()
-//     if (!author) throw new Error('Author ID is required')
-
-//     const { data, error } = await supabase
-//         .from('companions')
-//         .select()
-//         .eq('author', author)
-//         .range((page - 1) * limit, page * limit - 1)
-//         .order('created_at', { ascending: false })
-
-//     if (error || !data || data.length === 0) {
-//         throw new Error(error?.message || 'No companions found for this author')
-//     }
-
-//     return data;
-// }
 
 // export const getCompanionByAuthor = async (author: string) => {
 //     const supabase = createSupabaseClient()
